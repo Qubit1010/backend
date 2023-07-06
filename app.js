@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
+const dotenv = require("dotenv").config();
 const placesRoutes = require("./routes/places-routes");
 const userRoutes = require("./routes/users-routes");
 const HttpError = require("./models/http.error");
+const connectDB = require("./config/db");
 const port = 3000;
+
+connectDB()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

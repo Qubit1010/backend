@@ -12,6 +12,7 @@ const router = express.Router();
 
 router.get("/:pid", getPlaceById);
 router.get("/user/:uid", getPlacesByUserId);
+
 router.post( '/',
 [
   check('title')
@@ -22,6 +23,7 @@ router.post( '/',
     .not()
     .isEmpty()
 ], createPlace);
+
 router.patch("/:pid",
 [
   check('title')
@@ -29,6 +31,7 @@ router.patch("/:pid",
     .isEmpty(),
   check('description').isLength({ min: 5 })
 ], updatePlace);
+
 router.delete("/:pid", deletePlace);
 
 module.exports = router;
